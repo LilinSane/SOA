@@ -1,0 +1,430 @@
+<form action="" [formGroup]="form" (ngSubmit)="getPersons()" class="w-100 d-flex justify-content-center">
+  <div class="d-flex flex-column w-auto">
+    <p class="m-3" style="color: white;">Fill out the form to advanced search for a persons</p>
+    <!--<p class="mb-1" style="color: white;">Sort by:</p>
+
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" formControlName="isSortById">
+      <label class="form-check-label" style="color: white;">
+        ID
+      </label>
+    </div>
+
+    <div *ngIf="form.get('isSortById')?.value" class="mt-2 mb-3 d-flex align-items-start justify-content-start">
+      <label class="pe-4 ps-3" style="color: white;">Sort Order:</label>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="radio" formControlName="idSort" value="+" />
+        <label class="form-check-label" style="color: white;">Ascending</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="radio" formControlName="idSort" value="-" />
+        <label class="form-check-label" style="color: white;">Descending</label>
+      </div>
+    </div>
+
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" formControlName="isSortByName">
+      <label class="form-check-label" style="color: white;">
+        Name
+      </label>
+    </div>
+
+    <div *ngIf="form.get('isSortByName')?.value" class="mt-2 mb-3 d-flex align-items-start justify-content-start">
+      <label class="pe-4 ps-3" style="color: white;">Sort Order:</label>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="radio" formControlName="nameSort" value="+" />
+        <label class="form-check-label" style="color: white;">Ascending</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="radio" formControlName="nameSort" value="-" />
+        <label class="form-check-label" style="color: white;">Descending</label>
+      </div>
+    </div>
+
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" formControlName="isSortXCoordinate">
+      <label class="form-check-label" style="color: white;">
+        X coordinate
+      </label>
+    </div>
+
+    <div *ngIf="form.get('isSortXCoordinate')?.value" class="mt-2 mb-3 d-flex align-items-start justify-content-start">
+      <label class="pe-4 ps-3" style="color: white;">Sort Order:</label>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="radio" formControlName="xCoordinateSort" value="+" />
+        <label class="form-check-label" style="color: white;">Ascending</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="radio" formControlName="xCoordinateSort" value="-" />
+        <label class="form-check-label" style="color: white;">Descending</label>
+      </div>
+    </div>
+
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" formControlName="isSortYCoordinate">
+      <label class="form-check-label" style="color: white;">
+        Y coordinate
+      </label>
+    </div>
+
+    <div *ngIf="form.get('isSortYCoordinate')?.value" class="mt-2 mb-3 d-flex align-items-start justify-content-start">
+      <label class="pe-4 ps-3" style="color: white;">Sort Order:</label>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="radio" formControlName="yCoordinateSort" value="+" />
+        <label class="form-check-label" style="color: white;">Ascending</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="radio" formControlName="yCoordinateSort" value="-" />
+        <label class="form-check-label" style="color: white;">Descending</label>
+      </div>
+    </div>
+
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" formControlName="isSortByHeight">
+      <label class="form-check-label" style="color: white;">
+        Height
+      </label>
+    </div>
+
+    <div *ngIf="form.get('isSortByHeight')?.value" class="mt-2 mb-3 d-flex align-items-start justify-content-start">
+      <label class="pe-4 ps-3" style="color: white;">Sort Order:</label>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="radio" formControlName="heightSort" value="+" />
+        <label class="form-check-label" style="color: white;">Ascending</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="radio" formControlName="heightSort" value="-" />
+        <label class="form-check-label" style="color: white;">Descending</label>
+      </div>
+    </div>
+
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" formControlName="isSortByBirthday">
+      <label class="form-check-label" style="color: white;">
+        Birthday
+      </label>
+    </div>
+
+    <div *ngIf="form.get('isSortByBirthday')?.value" class="mt-2 mb-3 d-flex align-items-start justify-content-start">
+      <label class="pe-4 ps-3" style="color: white;">Sort Order:</label>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="radio" formControlName="birthdaySort" value="+" />
+        <label class="form-check-label" style="color: white;">Ascending</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="radio" formControlName="birthdaySort" value="-" />
+        <label class="form-check-label" style="color: white;">Descending</label>
+      </div>
+    </div>
+
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" formControlName="isSortByCreationDate">
+      <label class="form-check-label" style="color: white;">
+        Creation date
+      </label>
+    </div>
+
+    <div *ngIf="form.get('isSortByCreationDate')?.value" class="mt-2 mb-3 d-flex align-items-start justify-content-start">
+      <label class="pe-4 ps-3" style="color: white;">Sort Order:</label>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="radio" formControlName="creationDateSort" value="+" />
+        <label class="form-check-label" style="color: white;">Ascending</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="radio" formControlName="creationDateSort" value="-" />
+        <label class="form-check-label" style="color: white;">Descending</label>
+      </div>
+    </div>
+
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" formControlName="isSortByHairColor">
+      <label class="form-check-label" style="color: white;">
+        Hair color
+      </label>
+    </div>
+
+    <div *ngIf="form.get('isSortByHairColor')?.value" class="mt-2 mb-3 d-flex align-items-start justify-content-start">
+      <label class="pe-4 ps-3" style="color: white;">Sort Order:</label>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="radio" formControlName="hairColorSort" value="+" />
+        <label class="form-check-label" style="color: white;">Ascending</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="radio" formControlName="hairColorSort" value="-" />
+        <label class="form-check-label" style="color: white;">Descending</label>
+      </div>
+    </div>
+
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" formControlName="isSortByEyesColor">
+      <label class="form-check-label" style="color: white;">
+        Eyes color
+      </label>
+    </div>
+
+    <div *ngIf="form.get('isSortByEyesColor')?.value" class="mt-2 mb-3 d-flex align-items-start justify-content-start">
+      <label class="pe-4 ps-3" style="color: white;">Sort Order:</label>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="radio" formControlName="eyesColorSort" value="+" />
+        <label class="form-check-label" style="color: white;">Ascending</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="radio" formControlName="eyesColorSort" value="-" />
+        <label class="form-check-label" style="color: white;">Descending</label>
+      </div>
+    </div>
+
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" formControlName="isSortByNationality">
+      <label class="form-check-label" style="color: white;">
+        Nationality
+      </label>
+    </div>
+
+    <div *ngIf="form.get('isSortByNationality')?.value" class="mt-2 mb-3 d-flex align-items-start justify-content-start">
+      <label class="pe-4 ps-3" style="color: white;">Sort Order:</label>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="radio" formControlName="nationalitySort" value="+" />
+        <label class="form-check-label" style="color: white;">Ascending</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="radio" formControlName="nationalitySort" value="-" />
+        <label class="form-check-label" style="color: white;">Descending</label>
+      </div>
+    </div>
+
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" formControlName="isSortByXLocation">
+      <label class="form-check-label" style="color: white;">
+        X location
+      </label>
+    </div>
+
+    <div *ngIf="form.get('isSortByXLocation')?.value" class="mt-2 mb-3 d-flex align-items-start justify-content-start">
+      <label class="pe-4 ps-3" style="color: white;">Sort Order:</label>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="radio" formControlName="xLocationSort" value="+" />
+        <label class="form-check-label" style="color: white;">Ascending</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="radio" formControlName="xLocationSort" value="-" />
+        <label class="form-check-label" style="color: white;">Descending</label>
+      </div>
+    </div>
+
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" formControlName="isSortByYLocation">
+      <label class="form-check-label" style="color: white;">
+        Y location
+      </label>
+    </div>
+
+    <div *ngIf="form.get('isSortByYLocation')?.value" class="mt-2 mb-3 d-flex align-items-start justify-content-start">
+      <label class="pe-4 ps-3" style="color: white;">Sort Order:</label>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="radio" formControlName="yLocationSort" value="+" />
+        <label class="form-check-label" style="color: white;">Ascending</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="radio" formControlName="yLocationSort" value="-" />
+        <label class="form-check-label" style="color: white;">Descending</label>
+      </div>
+    </div>
+
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" formControlName="isSortByNameLocation">
+      <label class="form-check-label" style="color: white;">
+        Name location
+      </label>
+    </div>
+
+    <div *ngIf="form.get('isSortByNameLocation')?.value" class="mt-2 mb-3 d-flex align-items-start justify-content-start">
+      <label class="pe-4 ps-3" style="color: white;">Sort Order:</label>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="radio" formControlName="nameLocationSort" value="+" />
+        <label class="form-check-label" style="color: white;">Ascending</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="radio" formControlName="nameLocationSort" value="-" />
+        <label class="form-check-label" style="color: white;">Descending</label>
+      </div>
+    </div>-->
+
+    <p class=" mt-5" style="color: white;">Filtering by:</p>
+    <div *ngIf="filters().length > 0">
+      <ul class="list-group">
+        <ng-container *ngFor="let filter of filters().controls; let i = index">
+          <ng-container *ngIf="filtersViewStatuses[i]">
+            <li class="list-group-item" [formGroupName]="i">
+              <strong>Filter {{ i + 1 }}:</strong>
+              <p>Field: {{ filter.get('field')?.value }}</p>
+              <p>Operation: {{ filter.get('operation')?.value }}</p>
+              <p>Value: {{ filter.get('value')?.value }}</p>
+              <button class="btn btn-danger btn-sm" (click)="deleteFilter(i)">Remove</button>
+            </li>
+          </ng-container>
+        </ng-container>
+      </ul>
+    </div>
+
+    <!-- Button trigger modal -->
+    <button type="button" class="btn btn-outline-primary custom-green-btn mt-3" (click)="addFilter()" data-bs-toggle="modal" data-bs-target="#exampleModal">
+      Add filter
+    </button>
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Select filter</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" (click)="deleteFilter(currentFilterIndex)"></button>
+          </div>
+          <div class="modal-body">
+            <div *ngFor="let filter of filters().controls; let i = index" formArrayName="filters">
+              <ng-container *ngIf="filters().length - 1 === i">
+                <div [formGroupName]="i">
+                  <label for="filterName">Select field name</label>
+                  <select class="form-control" id="filterName" formControlName="field">
+                    <option value="id">ID</option>
+                    <option value="name">Name</option>
+                    <option value="coordinate.x">X coordinate</option>
+                    <option value="coordinate.y">Y coordinate</option>
+                    <option value="height">Height</option>
+                    <option value="birthday">Birthday</option>
+                    <option value="creationDate">Creation date</option>
+                    <option value="hairColor">Hair color</option>
+                    <option value="eyesColor">Eyes color</option>
+                    <option value="nationality">Nationality</option>
+                    <option value="location.x">X location</option>
+                    <option value="location.y">Y location</option>
+                    <option value="location.name">Name location</option>
+                  </select>
+                  <small *ngIf="(getFilterControl(i, 'field')?.dirty || getFilterControl(i, 'field')?.touched) && getFilterControl(i, 'field')?.invalid" class="error-msg">Incorrect value of field input <br></small>
+                  <label for="filterOperation">Select operation</label>
+                  <select class="form-control" id="filterOperation" formControlName="operation">
+                    <option value="eq">Equals (=)</option>
+                    <option value="neq">Not equals (!=)</option>
+                    <option value="gt">Greater than (>)</option>
+                    <option value="gte">Greater than or equals (>=)</option>
+                    <option value="lt">Less than (<)</option>
+                    <option value="lte">Less than or equals (<=)</option>
+                  </select>
+                  <small *ngIf="(getFilterControl(i, 'operation')?.dirty || getFilterControl(i, 'operation')?.touched) && getFilterControl(i, 'operation')?.invalid" class="error-msg">Incorrect value of operation input <br></small>
+                  <label for="filterValue">Enter value</label>
+                  <input type="text" class="form-control mt-2" id="filterValue" placeholder="Value" formControlName="value">
+                </div>
+              </ng-container>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <ng-container *ngIf="filters().length > 0">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="deleteFilter(currentFilterIndex)">Close</button>
+              <button type="button" class="btn btn-primary" data-bs-dismiss="modal" [disabled]="getFilterControl(currentFilterIndex, 'field')?.invalid || getFilterControl(currentFilterIndex, 'operation')?.invalid || getFilterControl(currentFilterIndex, 'value')?.invalid" (click)="setFilterViewStatus(currentFilterIndex)">Save changes</button>
+            </ng-container>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <input type="text" class="form-control mt-2 w-50" placeholder="Page" formControlName="page">
+      <small *ngIf="(form.get('page')?.dirty || form.get('page')?.touched) && form.get('page')?.invalid" class="error-msg">Incorrect value of page input</small>
+      <input type="text" class="form-control mt-2 w-50" placeholder="Page size" formControlName="size">
+      <small *ngIf="(form.get('size')?.dirty || form.get('size')?.touched) && form.get('size')?.invalid" class="error-msg">Incorrect value of size input</small>
+    </div>
+    <button class="btn btn-outline-primary custom-yellow-btn mt-3 w-50" type="submit" [disabled]="form.invalid">Send</button>
+  </div>
+</form>
+
+<div class="mt-5 mb-3 w-auto">
+  <div class="table-responsive">
+    <table class="table table-striped table-bordered">
+      <thead class="thead-dark">
+      <tr>
+        <th scope="col">ID<br>
+          <button (click)="toggleSort('id')" class="btn btn-sm">
+            <span>{{getSortIcon('id')}}</span>
+          </button>
+        </th>
+        <th scope="col">Name<br>
+          <button (click)="toggleSort('name')" class="btn btn-sm">
+            <span>{{getSortIcon('name')}}</span>
+          </button>
+        </th>
+        <th scope="col">X Coordinate<br>
+          <button (click)="toggleSort('coordinates.x')" class="btn btn-sm">
+            <span>{{getSortIcon('coordinates.x')}}</span>
+          </button>
+        </th>
+        <th scope="col">Y Coordinate<br>
+          <button (click)="toggleSort('coordinates.y')" class="btn btn-sm">
+            <span>{{getSortIcon('coordinates.y')}}</span>
+          </button>
+        </th>
+        <th scope="col">Height<br>
+          <button (click)="toggleSort('height')" class="btn btn-sm">
+            <span>{{getSortIcon('height')}}</span>
+          </button>
+        </th>
+        <th scope="col">Birthday<br>
+          <button (click)="toggleSort('birthday')" class="btn btn-sm">
+            <span>{{getSortIcon('birthday')}}</span>
+          </button>
+        </th>
+        <th scope="col">Creation Date<br>
+          <button (click)="toggleSort('creationDate')" class="btn btn-sm">
+            <span>{{getSortIcon('creationDate')}}</span>
+          </button>
+        </th>
+        <th scope="col">Hair Color<br>
+          <button (click)="toggleSort('hairColor')" class="btn btn-sm">
+            <span>{{getSortIcon('hairColor')}}</span>
+          </button>
+        </th>
+        <th scope="col">Eyes Color<br>
+          <button (click)="toggleSort('eyesColor')" class="btn btn-sm">
+            <span>{{getSortIcon('eyesColor')}}</span>
+          </button>
+        </th>
+        <th scope="col">Nationality<br>
+          <button (click)="toggleSort('nationality')" class="btn btn-sm">
+            <span>{{ getSortIcon('nationality') }}</span>
+          </button>
+        </th>
+        <th scope="col">X Location<br>
+          <button (click)="toggleSort('location.x')" class="btn btn-sm">
+            <span>{{getSortIcon('location.x')}}</span>
+          </button>
+        </th>
+        <th scope="col">Y Location<br>
+          <button (click)="toggleSort('location.y')" class="btn btn-sm">
+            <span>{{getSortIcon('location.y')}}</span>
+          </button>
+        </th>
+        <th scope="col">Name Location<br>
+          <button (click)="toggleSort('location.name')" class="btn btn-sm">
+            <span>{{getSortIcon('location.name')}}</span>
+          </button>
+        </th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let person of persons">
+        <td>{{ person.id }}</td>
+        <td>{{ person.name }}</td>
+        <td>{{ person.coordinates.x }}</td>
+        <td>{{ person.coordinates.y }}</td>
+        <td>{{ person.height }}</td>
+        <td>{{ person.birthday | date }}</td>
+        <td>{{ person.creationDate | date }}</td>
+        <td>{{ person.hairColor }}</td>
+        <td>{{ person.eyesColor }}</td>
+        <td>{{ person.nationality }}</td>
+        <td>{{ person.location.x }}</td>
+        <td>{{ person.location.y }}</td>
+        <td>{{ person.location.name }}</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

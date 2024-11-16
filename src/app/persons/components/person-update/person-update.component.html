@@ -1,0 +1,58 @@
+<form action="" [formGroup]="form" (ngSubmit)="updatePerson()" class="w-100 d-flex justify-content-center">
+  <div class="d-flex flex-column w-auto">
+    <p class="m-3" style="color: white;">Fill out the form to update person</p>
+    <input type="text" class="form-control mt-2" placeholder="ID" formControlName="id">
+    <small *ngIf="(form.get('id')?.dirty || form.get('id')?.touched) && form.get('id')?.invalid" class="error-msg">Incorrect value of ID input</small>
+    <input type="text" class="form-control mt-2" placeholder="Name" formControlName="name">
+    <small *ngIf="(form.get('name')?.dirty || form.get('name')?.touched) && form.get('name')?.invalid" class="error-msg">Incorrect value of name input</small>
+    <div class="d-flex flex-column align-items-start w-100" formGroupName="coordinates">
+      <input type="text" class="form-control mt-2" placeholder="X coordinate" formControlName="x">
+      <small *ngIf="(form.get('coordinates.x')?.dirty || form.get('coordinates.x')?.touched) && form.get('coordinates.x')?.invalid" class="error-msg">Incorrect value of x input</small>
+      <input type="text" class="form-control mt-2" placeholder="Y coordinate" formControlName="y">
+      <small *ngIf="(form.get('coordinates.y')?.dirty || form.get('coordinates.y')?.touched) && form.get('coordinates.y')?.invalid" class="error-msg">Incorrect value of y input</small>
+    </div>
+    <input type="text" class="form-control mt-2" placeholder="Height" formControlName="height">
+    <small *ngIf="(form.get('height')?.dirty || form.get('height')?.touched) && form.get('height')?.invalid" class="error-msg">Incorrect value of height input</small>
+    <input type="date" class="form-control mt-2" placeholder="Birthday" formControlName="birthday">
+    <small *ngIf="(form.get('birthday')?.dirty || form.get('birthday')?.touched) && form.get('birthday')?.invalid" class="error-msg">Incorrect value of birthday input</small>
+    <input type="text" class="form-control mt-2" placeholder="Passport ID" formControlName="passportID">
+    <small *ngIf="(form.get('passportID')?.dirty || form.get('passportID')?.touched) && form.get('passportID')?.invalid" class="error-msg">Incorrect value of passportID input</small>
+
+    <label for="hairColor" style="color: white;">Select hair color</label>
+    <select class=" form-control" id="hairColor" formControlName="hairColor">
+      <option value="{{null}}"></option>
+      <ng-container *ngFor="let item of color">
+        <option>{{ item.charAt(0).toUpperCase() + item.slice(1).toLowerCase() }}</option>
+      </ng-container>
+    </select>
+    <small *ngIf="(form.get('hairColor')?.dirty || form.get('hairColor')?.touched) && form.get('hairColor')?.invalid" class="error-msg">Incorrect value of hairColor input</small>
+
+    <label for="eyesColor" style="color: white;">Select eyes color</label>
+    <select class="form-control" id="eyesColor" formControlName="eyesColor">
+      <option value="{{null}}"></option>
+      <ng-container *ngFor="let item of color">
+        <option>{{ item.charAt(0).toUpperCase() + item.slice(1).toLowerCase() }}</option>
+      </ng-container>
+    </select>
+    <small *ngIf="(form.get('eyesColor')?.dirty || form.get('eyesColor')?.touched) && form.get('eyesColor')?.invalid" class="error-msg">Incorrect value of eyesColor input</small>
+
+    <label for="nationality" style="color: white;">Select nationality</label>
+    <select class="form-control" id="nationality" formControlName="nationality">
+      <option value="{{null}}"></option>
+      <ng-container *ngFor="let item of nationality">
+        <option>{{ item.charAt(0).toUpperCase() + item.slice(1).toLowerCase() }}</option>
+      </ng-container>
+    </select>
+    <small *ngIf="(form.get('nationality')?.dirty || form.get('nationality')?.touched) && form.get('nationality')?.invalid" class="error-msg">Incorrect value of nationality input</small>
+
+    <div class="d-flex flex-column align-items-start w-100" formGroupName="location">
+      <input type="text" class="form-control mt-2" placeholder="X location" formControlName="x">
+      <small *ngIf="(form.get('location.x')?.dirty || form.get('location.x')?.touched) && form.get('location.x')?.invalid" class="error-msg">Incorrect value of x input</small>
+      <input type="text" class="form-control mt-2" placeholder="Y location" formControlName="y">
+      <small *ngIf="(form.get('location.y')?.dirty || form.get('location.y')?.touched) && form.get('location.y')?.invalid" class="error-msg">Incorrect value of y input</small>
+      <input type="text" class="form-control mt-2" placeholder="Name location" formControlName="name">
+      <small *ngIf="(form.get('location.name')?.dirty || form.get('location.name')?.touched) && form.get('location.name')?.invalid" class="error-msg">Incorrect value of name input</small>
+    </div>
+    <button class="btn btn-outline-primary custom-yellow-btn mt-3 w-50" type="submit">Send</button>
+  </div>
+</form>

@@ -1,0 +1,30 @@
+<div class="card" style="width: 18rem;">
+  <div class="card-body">
+    <img ngSrc="/assets/passport-img.png" class="card-img-top" alt="Passport Image" style="object-fit: cover;"
+         height="300" width="300">
+
+    <p class="card-text"><strong>ID:</strong> {{person.id}}</p>
+    <p class="card-text"><strong>Name:</strong> {{person.name}}</p>
+
+    <p class="card-text"><strong>Location:</strong></p>
+    <ul class="list-group">
+      <li class="list-group-item"><strong>X:</strong> {{person.location.x}}</li>
+      <li class="list-group-item"><strong>Y:</strong> {{person.location.y}}</li>
+      <li class="list-group-item"><strong>Name:</strong> {{person.location.name}}</li>
+    </ul>
+
+    <p class="card-text"><strong>Coordinates:</strong></p>
+    <ul class="list-group">
+      <li class="list-group-item"><strong>X:</strong> {{person.coordinates.x}}</li>
+      <li class="list-group-item"><strong>Y:</strong> {{person.coordinates.y}}</li>
+    </ul>
+
+    <p class="card-text"><strong>Height:</strong> {{person.height}}</p>
+    <p class="card-text"><strong>Passport ID:</strong> {{person.passportID}}</p>
+    <p class="card-text"><strong>Hair Color:</strong> {{person.hairColor}}</p>
+    <p class="card-text"><strong>Creation Date:</strong> {{person.creationDate | date}}</p>
+    <p class="card-text"><strong>Birthday:</strong> {{person.birthday | date}}</p>
+    <p class="card-text"><strong>Eyes Color:</strong> {{person.eyesColor}}</p>
+    <p class="card-text"><strong>Nationality:</strong> {{person.nationality}}</p>
+  </div>
+</div>

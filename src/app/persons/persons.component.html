@@ -1,0 +1,33 @@
+<app-column-content>
+  <ul class="nav nav-tabs">
+    <li class="nav-item">
+      <a class="nav-link" [ngClass]="{'active': selectedForm === 'creation'}" href="" (click)="selectForm($event, 'creation')" >Creation</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="" [ngClass]="{'active': selectedForm === 'search'}" (click)="selectForm($event, 'search')">Search</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="" [ngClass]="{'active': selectedForm === 'deletion'}" (click)="selectForm($event, 'deletion')">Deletion</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="" [ngClass]="{'active': selectedForm === 'update'}" (click)="selectForm($event, 'update')">Update</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="" [ngClass]="{'active': selectedForm === 'advanced'}" (click)="selectForm($event, 'advanced')">Advanced search</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="" [ngClass]="{'active': selectedForm === 'statistics'}" (click)="selectForm($event, 'statistics')">Statistics</a>
+    </li>
+  </ul>
+  <div [ngSwitch]="selectedForm">
+    <app-person-creation *ngSwitchCase="'creation'" [color]="color" [nationality]="nationality" (onAddPerson)="handlePersonData($event)" (onNotify)="handleNotificationData($event)"></app-person-creation>
+    <app-person-details *ngSwitchCase="'search'" (onGetPerson)="handlePersonData($event)" (onNotify)="handleNotificationData($event)"></app-person-details>
+    <app-person-update *ngSwitchCase="'update'" [color]="color" [nationality]="nationality" (onUpdatePerson)="handlePersonData($event)" (onNotify)="handleNotificationData($event)"></app-person-update>
+    <app-person-deletion *ngSwitchCase="'deletion'" (onNotify)="handleNotificationData($event)"></app-person-deletion>
+    <app-all-persons-details *ngSwitchCase="'advanced'" (onNotify)="handleNotificationData($event)"></app-all-persons-details>
+    <app-person-statistics *ngSwitchCase="'statistics'" (onNotify)="handleNotificationData($event)"></app-person-statistics>
+  </div>
+  <app-status-notification [notification]="notification" ></app-status-notification>
+  <app-details-card class="mt-5 d-flex justify-content-center" *ngFor="let person of persons" [person] = person></app-details-card>
+</app-column-content>
+

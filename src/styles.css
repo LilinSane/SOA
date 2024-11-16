@@ -1,0 +1,94 @@
+.nav-tabs .nav-link {
+  color: white; /* Цвет текста табов */
+}
+
+.nav-tabs .nav-link:hover {
+  color: white; /* Цвет текста табов */
+}
+
+.custom-yellow-btn {
+  color: white;
+  border-color: #f5f542;
+}
+
+.custom-yellow-btn:hover {
+  color: black;
+  background-color: #f0a40c;
+  border-color: #f5f542;
+}
+
+.custom-red-btn {
+  color: white;
+  border-color: #f22e2e;
+}
+
+.custom-red-btn:hover {
+  color: white;
+  background-color: #cf2929;
+  border-color: #f22e2e;
+}
+
+.custom-green-btn {
+  color: white;
+  border-color: #32a84e;
+}
+
+.custom-green-btn:hover {
+  color: white;
+  background-color: #32a84e;
+  border-color: #207835;
+}
+
+input.ng-invalid.ng-touched {
+  border-color: #d11525;
+  box-shadow: 0 0 5px #d11525;
+}
+
+input[type="text"]{
+  max-width: 200px;
+}
+
+input[type="date"]{
+  max-width: 200px;
+}
+
+select{
+  max-width: 200px;
+}
+
+button{
+  max-width: 150px;
+}
+
+.error-msg {
+  color: #d11525;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-image: url('/assets/main-bg2.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  margin: 0;
+}
+
+.table {
+  font-size: 0.85rem;
+}
+
+.snack-bar-success {
+  background-color: #4caf50;
+  color: #fff;
+}
+
+.snack-bar-error {
+  background-color: #f44336;
+  color: #fff;
+}
+

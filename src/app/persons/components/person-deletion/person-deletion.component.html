@@ -1,0 +1,8 @@
+<form [formGroup]="form" (ngSubmit)="deletePerson()" class="w-100 d-flex justify-content-center">
+  <div class="d-flex flex-column w-auto">
+    <p class="m-3" style="color: white;">Fill out the form to delete a person</p>
+    <input type="text" class="form-input form-control mt-2" placeholder="ID" formControlName="id" pattern="\d*">
+    <small *ngIf="(form.get('id')?.dirty || form.get('id')?.touched) && form.get('id')?.invalid" class="error-msg">Incorrect value of ID input</small>
+    <button class="btn btn-outline-primary custom-red-btn mt-3 w-50" type="submit" [disabled]="form.invalid">Send</button>
+  </div>
+</form>

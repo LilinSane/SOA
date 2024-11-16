@@ -1,0 +1,32 @@
+<form [formGroup]="form" (ngSubmit)="getNationalityStatistics()" class="w-100 d-flex justify-content-center">
+  <div class="d-flex flex-column w-auto">
+    <p class="m-3" style="color: white;">Fill out the form to search for a persons nationality statistics</p>
+    <label for="color" style="color: white;">Select hair color</label>
+    <select class="form-control" id="color" formControlName="color">
+      <option value="{{null}}"></option>
+      <ng-container *ngFor="let item of color">
+        <option>{{ item.charAt(0).toUpperCase() + item.slice(1).toLowerCase() }}</option>
+      </ng-container>
+    </select>
+    <small *ngIf="(form.get('color')?.dirty || form.get('color')?.touched) && form.get('color')?.invalid" class="error-msg">Incorrect value of color input</small>
+    <label for="color" style="color: white;">Select nationality</label>
+    <select class="form-control" id="nationality" formControlName="nationality">
+      <option value="{{null}}"></option>
+      <ng-container *ngFor="let item of nationality">
+        <option>{{ item.charAt(0).toUpperCase() + item.slice(1).toLowerCase() }}</option>
+      </ng-container>
+    </select>
+    <small *ngIf="(form.get('nationality')?.dirty || form.get('nationality')?.touched) && form.get('nationality')?.invalid" class="error-msg">Incorrect value of nationality input</small>
+    <button class="btn btn-outline-primary custom-yellow-btn mt-3 w-50" type="submit" [disabled]="form.invalid">Send</button>
+  </div>
+</form>
+<div *ngIf="percentage">
+  <ul class="list-group">
+    <li class="list-group-item">
+      <strong>Result:</strong>
+      <p>Nationality: {{ nationalityField }}</p>
+      <p>Color: {{ colorField }}</p>
+      <p>Value: {{ percentage }} %</p>
+    </li>
+  </ul>
+</div>

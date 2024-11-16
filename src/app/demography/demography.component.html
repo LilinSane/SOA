@@ -1,0 +1,17 @@
+<app-column-content>
+  <ul class="nav nav-tabs">
+    <li class="nav-item">
+      <a class="nav-link" [ngClass]="{'active': selectedForm === 'eyesColor'}" href="" (click)="selectForm($event, 'eyesColor')" >Eyes color</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="" [ngClass]="{'active': selectedForm === 'nationality'}" (click)="selectForm($event, 'nationality')">Nationality</a>
+    </li>
+  </ul>
+  <div [ngSwitch]="selectedForm">
+    <app-demography-eyes-color-statistics *ngSwitchCase="'eyesColor'" (onNotify)="handleNotificationData($event)" [color]="color"></app-demography-eyes-color-statistics>
+    <app-demography-nationality-statistics *ngSwitchCase="'nationality'" (onNotify)="handleNotificationData($event)" [color]="color" [nationality]="nationality"></app-demography-nationality-statistics>
+  </div>
+  <app-status-notification [notification]="notification" ></app-status-notification>
+</app-column-content>
+
+
